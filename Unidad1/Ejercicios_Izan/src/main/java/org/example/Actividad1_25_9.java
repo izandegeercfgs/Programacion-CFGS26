@@ -1,4 +1,10 @@
-package org.example;
+.
+
+        .
+        .
+        ..
+        .
+        5package org.example;
 
 import java.util.Scanner;
 
