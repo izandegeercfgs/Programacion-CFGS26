@@ -4,66 +4,108 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class practicaInicial {
-    static void main() {
+    public static void main() {
         Scanner teclado = new Scanner(System.in);
 
-        int multiplicando = 0;
-        int multiplicador = 0;
-        int resultado = 0;
+        int multiplicando;
+        int multiplicador;
+        int resultado;
 
         try {
-            System.out.print("> Introduce el multiplicando (3 cifras): "); // Pide el primer número
+            System.out.print("Introduce el multiplicando (3 cifras): "); // Pide el primer número
             multiplicando = teclado.nextInt();
 
-            while (multiplicando < 100 || multiplicando > 999) { // Controla que tenga 3 cifras
-                System.out.print("");
-                System.err.println("x ERROR. Introduce un número de 3 cifras, positivo y mayor que 0.");
-                multiplicando = teclado.nextInt();
-                System.out.print("> Introduce el multiplicando (3 cifras): "); // Vuelve a pedir el primer número
+            if (multiplicando > 0) { // En caso de que sea positivo
+                while (multiplicando < 100 || multiplicando > 999) { // Controla que tenga 3 cifras
+                    System.err.print("ERROR. Introduce un número de 3 cifras: ");
+                    multiplicando = teclado.nextInt();
+                }
+            } else if (multiplicando < 0) { // En caso de que sea negativo
+                while (multiplicando < -999 || multiplicando > -100) { // Controla que tenga 3 cifras
+                    System.err.print("ERROR. Introduce un número de 3 cifras: ");
+                    multiplicando = teclado.nextInt();
+                }
             }
-            System.out.println("* Tu primer número es " + multiplicando);
-
-            System.out.print("> Introduce otro multiplicando (3 cifras): "); // Pedir segundo número
-            multiplicador = teclado.nextInt();
-
-            while (multiplicador < 100 || multiplicador > 999) { // Controla que tenga 3 cifras
-                System.out.print("");
-                System.err.println("x ERROR. Introduce un número de 3 cifras.");
-                System.out.print("> Introduce el multiplicador (3 cifras): "); // Vuelve a pedir el segundo número
-                multiplicador = teclado.nextInt();
-            }
-            System.out.println("* Tu segundo número es " + multiplicador);
-
-            resultado = multiplicador * multiplicando;
-
-            System.out.println("> El producto de la multiplicación es: " + resultado);
 
         } catch (InputMismatchException e) {
-            System.err.println("x ERROR. Introduce un formato valido.");
+            System.err.println("ERROR. Introduce un formato valido.");
+            return;
         }
+
+        try {
+            System.out.print("Introduce el multiplicador (3 cifras): "); // Pedir segundo número
+            multiplicador = teclado.nextInt();
+
+            if (multiplicador > 0) { // En caso de que sea positivo
+                while (multiplicador < 100 || multiplicador > 999) { // Controla que tenga 3 cifras
+                    System.err.print("ERROR. Introduce un número de 3 cifras: ");
+                    multiplicador = teclado.nextInt();
+                }
+            } else if (multiplicador < 0) { // En caso de que sea negativo
+                while (multiplicador > -99 || multiplicador < -1000) { // Controla que tenga 3 cifras
+                    System.err.print("ERROR. Introduce un número de 3 cifras: ");
+                    multiplicador = teclado.nextInt();
+                }
+            }
+        } catch (InputMismatchException e) {
+            System.err.println("ERROR. Introduce un formato valido.");
+            return;
+        }
+
+        resultado = multiplicador * multiplicando;
+
+            System.out.println("\nEl producto de la multiplicación es: " + resultado);
 
         // Empezamos el proceso del desglose
 
-        System.out.println("> El proceso es:");
+        System.out.println("El proceso es:");
 
         System.out.println("   " + multiplicando);
-        System.out.println(" x " + multiplicador);
+        if (resultado == 0) {
+            System.out.println(" x   " + multiplicador);
+        } else {
+            System.out.println(" x " + multiplicador);
+        }
         System.out.println("--------");
 
         String multiplicadorStr = Integer.toString(multiplicador);
 
-        int multiplicador1 = Integer.parseInt(multiplicadorStr.substring(0,1));
-        int multiplicador2 = Integer.parseInt(multiplicadorStr.substring(1,2));
-        int multiplicador3 = Integer.parseInt(multiplicadorStr.substring(2,3));
+        int multiplicador1;
+        int multiplicador2;
+        int multiplicador3;
 
-        String resultado1 = "   " + Integer.toString(multiplicando * multiplicador3);
-        String resultado2 = "  " + Integer.toString(multiplicando * multiplicador2) + "x";
-        String resultado3 = " " + Integer.toString(multiplicando * multiplicador1) + "xx";
+        if (multiplicador > 0) { // Si el numero es positivo, coge las posiciones (0,1), (1,2) y (2,3)
+            multiplicador1 = Integer.parseInt(multiplicadorStr.substring(0,1));
+            multiplicador2 = Integer.parseInt(multiplicadorStr.substring(1,2));
+            multiplicador3 = Integer.parseInt(multiplicadorStr.substring(2,3));
+        } else if (multiplicador < 0) { // Si el numero es negativo, coge las posiciones (1,2), (2,3) y (3,4) para evitar coger el "-"
+            multiplicador1 = Integer.parseInt(multiplicadorStr.substring(1,2));
+            multiplicador2 = Integer.parseInt(multiplicadorStr.substring(2,3));
+            multiplicador3 = Integer.parseInt(multiplicadorStr.substring(3,4));
+        }  else {
+            multiplicador1 = 0;
+            multiplicador2 = 0;
+            multiplicador3 = 0;
+        }
 
-        System.out.println(resultado1);
-        System.out.println(resultado2);
-        System.out.println(resultado3);
-        System.out.println("--------");
-        System.out.println(" " + resultado);
+        if (multiplicador != 0) {
+            // Imprimimos el resultado
+            String resultado1 = "   " + multiplicando * multiplicador3;
+            String resultado2 = "  " + multiplicando * multiplicador2 + "x";
+            String resultado3 = " " + multiplicando * multiplicador1 + "xx";
+
+            System.out.println(resultado1);
+            System.out.println(resultado2);
+            System.out.println(resultado3);
+
+            System.out.println("--------");
+            System.out.println(" " + resultado);
+        } else {
+            String resultado1 = "     " + multiplicador1;
+            System.out.println(resultado1);
+
+            System.out.println("--------");
+            System.out.println("     " + resultado);
+        }
     }
 }
