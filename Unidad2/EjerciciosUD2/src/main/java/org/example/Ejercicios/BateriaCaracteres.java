@@ -64,9 +64,11 @@ public class BateriaCaracteres {
 
         int fraselength = texto.length();
         int frasesinsubcadena = texto.replace(subcadena, "").length();
+        System.out.println(fraselength);
+        System.out.println(frasesinsubcadena);
 
         int division = (fraselength - frasesinsubcadena) / subcadena.length();
-        System.out.println(division);
+        System.out.println("Número de veces que aparece la palabra '" + subcadena + "' = " + division);
     }
 
     public static void Ejercicio5() {
