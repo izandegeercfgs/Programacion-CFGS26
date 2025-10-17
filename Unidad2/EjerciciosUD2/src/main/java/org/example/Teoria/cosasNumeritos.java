@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Teoria;
 
 public class cosasNumeritos {
     static void main() {
