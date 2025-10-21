@@ -26,7 +26,7 @@ public class calculadoraSimple {
             if (operacion.equals("+") || operacion.equals("-") || operacion.equals("x") || operacion.equals("/") || operacion.equals("R")) { // Comprueba que la operación introducida sea una de las disponibles
                 if (operacion.equals("R")) { // Raíz cuadrada
                     if (operando > 0) {
-                        int resultado = (int) Math.sqrt(operando);
+                        int resultado = Math.sqrt(operando);
                         System.out.println("Raiz cuadrada de " + operando + " es " + resultado);
                     } else {
                         System.err.println("ERROR. No es posible realizar la Raíz cuadrada de un número negativo.");
