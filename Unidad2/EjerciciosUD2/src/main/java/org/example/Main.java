@@ -5,6 +5,6 @@ import org.example.Ejercicios.bateriaBucles;
 
 public class Main {
     static void main() {
-        bateriaBucles.ejercicio2();
+        bateriaBucles.ejercicio8();
     }
 }
