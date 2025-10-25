@@ -80,7 +80,7 @@ public class comprobadorISBN {
 
             int suma = 0;
 
-            for (int i = 0; i < isbn.length(); i++) {
+            for (int i = 0; i < isbn.length(); i++) { // Contador para convertir 'X' en '10'
                 char charISBN2 = isbn.charAt(i);
                 int multiplicador;
 
@@ -111,7 +111,7 @@ public class comprobadorISBN {
             int contador = 0;
             int posicionInterrogacion = 0;
 
-            for (int i = 0; i < isbn.length(); i++) {
+            for (int i = 0; i < isbn.length(); i++) { // Bucle para controlar cuantos '?' hay en el ISBN
                 char posicionInt = isbn.charAt(i);
 
                 if (posicionInt == '?') {
@@ -135,20 +135,20 @@ public class comprobadorISBN {
                 suma += numero * (i + 1);
             }
 
-            if (contador == 1) {
+            if (contador == 1) { // En caso de haber solo un '?', calcula el número faltante
                 boolean coincidenciaInt = false;
 
-                for (int i = 0; i <= 9; i++) {
+                for (int i = 0; i <= 9; i++) { // Prueba todos los numeros del 0 al 9 en la posición '?'
                     int sumaTemp = suma + (i * (posicionInterrogacion + 1));
 
-                    if ((sumaTemp % 11) == 0) {
+                    if ((sumaTemp % 11) == 0) { // En caso de que sea disvisible / 11 el resultado, se encontró
                         System.out.println("El número que falta es: " + i);
                         coincidenciaInt = true;
                         break;
                     }
                 }
 
-                if (posicionInterrogacion == 9) {
+                if (posicionInterrogacion == 9) { // Si el '?' está en la última posición, también hay que tener en cuenta la 'X' como posiblidad
                     int sumaTemp2 = suma + (10 * (posicionInterrogacion + 1));
                     if ((sumaTemp2 % 11) == 0) {
                         System.out.println("El número que falta es: 10");
@@ -156,10 +156,10 @@ public class comprobadorISBN {
                     }
                 }
 
-                if (!coincidenciaInt) {
+                if (!coincidenciaInt) { // Si no se encontró número para reemplazar
                     System.err.println("x No se pudo reparar el ISBN.");
                 }
-            } else {
+            } else { // En caso de que haya más de uno o ningun '?'
                 System.err.println("xERROR. No hay nada que reparar");
             }
         } else if (modo.equals("x")) { // Modo X - Salir del programa
