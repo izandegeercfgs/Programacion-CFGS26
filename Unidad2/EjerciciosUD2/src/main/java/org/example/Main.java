@@ -1,9 +1,9 @@
 package org.example;
 
-import org.example.Ejercicios.bateriaBucles;
+import org.example.Ejercicios.actividadesRandom;
 
 public class Main {
     static void main() {
-        bateriaBucles.ejercicio7();
+        actividadesRandom.ejercicio4();
     }
 }
