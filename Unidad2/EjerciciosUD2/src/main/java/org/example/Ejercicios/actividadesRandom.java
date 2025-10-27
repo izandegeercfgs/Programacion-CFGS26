@@ -29,8 +29,7 @@ public class actividadesRandom {
         String contrasenya = "";
 
         for (int i = 0; i <= largo; i++) {
-            Random aleatorio = new Random();
-            pos = aleatorio.nextInt(caracteres.length());
+            pos = random.nextInt(caracteres.length());
             contrasenya += caracteres.charAt(pos);
         }
 
