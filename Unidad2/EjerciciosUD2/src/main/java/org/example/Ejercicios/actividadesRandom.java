@@ -28,7 +28,7 @@ public class actividadesRandom {
 
         String contrasenya = "";
 
-        for (int i = 0; i <= largo; i++) {
+        for (int i = 1; i < largo; i++) {
             pos = random.nextInt(caracteres.length());
             contrasenya += caracteres.charAt(pos);
         }
