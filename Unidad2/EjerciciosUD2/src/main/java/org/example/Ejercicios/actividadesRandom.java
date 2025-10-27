@@ -19,10 +19,7 @@ public class actividadesRandom {
     } // Lanzamiento de dados
 
     public static void ejercicio2() {
-<<<<<<< HEAD
         System.out.println("> Ejercicio 2. Generador de Contraseñas.");
-=======
->>>>>>> 3f1c358d6eb93a1cbdbcc3d49b40fe19f219fc19
         Random random = new Random();
 
         String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -41,10 +38,7 @@ public class actividadesRandom {
     } // Generador de Contraseñas
 
     public static void ejercicio3() {
-<<<<<<< HEAD
         System.out.println("> Ejercicio 3. Números aleatorios en un rango.");
-=======
->>>>>>> 3f1c358d6eb93a1cbdbcc3d49b40fe19f219fc19
         Scanner teclado = new Scanner(System.in);
         Random random = new Random();
 
@@ -68,10 +62,7 @@ public class actividadesRandom {
     } // Números aleatorios en un rango
 
     public static void ejercicio4() {
-<<<<<<< HEAD
         System.out.println("> Ejercicio 4. Contraseña mejorada.");
-=======
->>>>>>> 3f1c358d6eb93a1cbdbcc3d49b40fe19f219fc19
         Random random = new Random();
         String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
