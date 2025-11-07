@@ -13,6 +13,7 @@ public class BatallaSamurai {
 
         final int numEquipos = 2; // Establece el numero de equipos a una constante = 2
         final int numSamurais = 7; // Establece el numero de samurais por equipo a una constante = 7
+        final int maxMuertes = 4; // Máximo de muertes permitidas
 
         int[] equipo1 = new int [numSamurais]; // Crea un vector de tamaño 7
         int[] equipo2 = new int [numSamurais]; // Crea un vector de tamaño 7
@@ -48,7 +49,7 @@ public class BatallaSamurai {
                             }
                             sumaEquipo += potencia;
                             equipo[j] = potencia;
-                        } catch (NumberFormatException e) {
+                        } catch (NumberFormatException e) { // No permite entrada de otra cosa que números ("a", ","...)
                             System.out.println("> ERROR. Introduce solo números.");
                             valido = false;
                             break;
@@ -71,31 +72,32 @@ public class BatallaSamurai {
         }
         System.out.println("> ¡Empieza la batalla!");
 
-        int turno = random.nextInt(numSamurais) + 1;
+        int largoTurno = numSamurais - 1;
+        int turno = random.nextInt(largoTurno) + 1; // Randomiza el primer turno
         System.out.println("> La batalla inicia con el Samurai " + (turno));
 
         int contMuertos1 = 0;
         int contMuertos2 = 0;
 
-        while (contMuertos1 < 4 && contMuertos2 < 4) {
+        while (contMuertos1 < maxMuertes && contMuertos2 < maxMuertes) { // El juego continua hasta que uno de los 2 equipos tiene 4 bajas
             int samurai1 = equipo1[turno];
             int samurai2 = equipo2[turno];
 
             System.out.print("> Samurai " + (turno) + ". ");
 
-            if (samurai1 > samurai2) {
-                System.out.println("Gana Equipo 1. " + samurai1 + " vs " + samurai2);
-                equipo2[turno] = 0;
-                contMuertos2++;
-            } else if (samurai1 < samurai2) {
-                System.out.println("Gana Equipo 2. " + samurai1 + " vs " + samurai2);
-                equipo1[turno] = 0;
-                contMuertos1++;
-            } else {
+            if (samurai1 == samurai2) {
                 System.out.println("Empate. Ambos samuráis caen. " + samurai1 + " vs " + samurai2);
                 equipo1[turno] = 0;
                 equipo2[turno] = 0;
                 contMuertos1++;
+                contMuertos2++;
+            } else if (samurai1 < samurai2) { // Victoria equipo 2
+                System.out.println("Gana Equipo 2. " + samurai1 + " vs " + samurai2);
+                equipo1[turno] = 0;
+                contMuertos1++;
+            } else if (samurai1 > samurai2){ // Victoria equipo 1
+                System.out.println("Gana Equipo 1. " + samurai1 + " vs " + samurai2);
+                equipo2[turno] = 0;
                 contMuertos2++;
             }
             turno++;
@@ -104,9 +106,11 @@ public class BatallaSamurai {
                 turno = 0;
             }
         }
-        if (contMuertos1 >= 4) {
+        if (contMuertos1 == contMuertos2){ // Empate
+            System.out.println("Empate. Cada equipo tiene " + contMuertos1 + " bajas.");
+        } else if (contMuertos1 >= 4) { // Victoria equipo 2
             System.out.println("> ¡Equipo 2 GANA! Equipo 1 ha tenido " + contMuertos1 + " bajas.");
-        } else {
+        } else { // Victoria equipo 1
             System.out.println("> ¡Equipo 1 GANA! Equipo 2 ha tenido " + contMuertos2 + " bajas.");
         }
     }

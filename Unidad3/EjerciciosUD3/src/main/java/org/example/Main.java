@@ -6,6 +6,6 @@ import org.example.Teoria.Split;
 
 public class Main {
     public static void main(String[] args) {
-        bateriaArrays.ejercicio6();
+        BatallaSamurai.main();
     }
 }
