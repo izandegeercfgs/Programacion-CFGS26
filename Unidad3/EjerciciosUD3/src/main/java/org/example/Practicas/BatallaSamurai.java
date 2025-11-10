@@ -15,8 +15,8 @@ public class BatallaSamurai {
         final int numSamurais = 7; // Establece el numero de samurais por equipo a una constante = 7
         final int maxMuertes = 4; // Máximo de muertes permitidas
 
-        int[] equipo1 = new int [numSamurais]; // Crea un vector de tamaño 7
-        int[] equipo2 = new int [numSamurais]; // Crea un vector de tamaño 7
+        int[] equipo1 = new int[numSamurais]; // Crea un vector de tamaño 7
+        int[] equipo2 = new int[numSamurais]; // Crea un vector de tamaño 7
 
         for (int i = 1; i <= numEquipos; i++) { // Crea bucle para rellenar los valores de cada equipo
             int sumaEquipo; // Crea una variable para la suma de las potencias por equipo
@@ -40,6 +40,7 @@ public class BatallaSamurai {
 
                 if (ptsEquipo.length == numSamurais) { // Controla la potencia
                     for (int j = 0; j < numSamurais; j++) { // Recorre cada equipo
+
                         try {
                             int potencia = Integer.parseInt(ptsEquipo[j]);
                             if (potencia < 1 || potencia > 24) { // En caso de no estar en el rango, da error
@@ -95,7 +96,7 @@ public class BatallaSamurai {
                 System.out.println("Gana Equipo 2. " + samurai1 + " vs " + samurai2);
                 equipo1[turno] = 0;
                 contMuertos1++;
-            } else if (samurai1 > samurai2){ // Victoria equipo 1
+            } else if (samurai1 > samurai2) { // Victoria equipo 1
                 System.out.println("Gana Equipo 1. " + samurai1 + " vs " + samurai2);
                 equipo2[turno] = 0;
                 contMuertos2++;
@@ -106,7 +107,7 @@ public class BatallaSamurai {
                 turno = 0;
             }
         }
-        if (contMuertos1 == contMuertos2){ // Empate
+        if (contMuertos1 == contMuertos2) { // Empate
             System.out.println("Empate. Cada equipo tiene " + contMuertos1 + " bajas.");
         } else if (contMuertos1 >= 4) { // Victoria equipo 2
             System.out.println("> ¡Equipo 2 GANA! Equipo 1 ha tenido " + contMuertos1 + " bajas.");
