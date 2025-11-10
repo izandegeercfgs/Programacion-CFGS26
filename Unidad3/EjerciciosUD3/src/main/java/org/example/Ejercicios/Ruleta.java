@@ -18,8 +18,8 @@ public class Ruleta {
         Integer[] numeros = new Integer[37];
 
         int numUsuario;
-        String parUsuario = "";
-        String colorUsuario = "";
+        String parUsuario;
+        String colorUsuario;
 
         for (int i = 0; i < numeros.length; i++) {
             numeros[i] = i;
@@ -81,12 +81,8 @@ public class Ruleta {
                 System.out.println("HA ACERTADO COLOR");
             } else if (aciertoPar) {
                 System.out.println("HA ACERTADO " + parBanca.toUpperCase());
-            } else if (numUsuario == 0) {
-                System.out.println("HA GANADO y los demás pierden");
             } else if (aciertoNumero) {
                 System.out.println("HA ACERTADO EL NÚMERO");
-            } else if (aciertoColor && aciertoPar) {
-                System.out.println("HA ACERTADO COLOR Y " + parBanca.toUpperCase());
             } else {
                 System.out.println("HA PERDIDO");
             }
