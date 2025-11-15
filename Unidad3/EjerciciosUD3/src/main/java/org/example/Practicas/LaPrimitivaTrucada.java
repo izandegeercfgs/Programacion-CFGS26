@@ -29,7 +29,7 @@ public class LaPrimitivaTrucada {
         String[] boletoV = boletoEntero.split("[-/]");
         int[] boletoVint = new int [tamBoleto];
         int reintegro = Integer.parseInt(boletoV[6]);
-        int[] boletoBancaV = {23, 44, 11, 7, 34, 2};
+        int[] boletoBancaV = {213, 414, 111, 71, 31, 210};
 
         for (int i = 0; i < tamBoleto; i++) {
             boletoVint[i] = Integer.parseInt(boletoV[i]);
@@ -50,7 +50,7 @@ public class LaPrimitivaTrucada {
         }
 
         int complementarioBanca = 2;
-        int reintegroBanca = 1;
+        int reintegroBanca = 7;
 
         System.out.println("--------------------");
         System.out.print("Ha salido: ");

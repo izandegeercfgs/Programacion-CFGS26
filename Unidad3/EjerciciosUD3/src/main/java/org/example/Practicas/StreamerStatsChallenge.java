@@ -90,6 +90,8 @@ public class StreamerStatsChallenge {
         System.out.println("MAX= " + maxEspectadores);
         System.out.println("HYPE= " + maxHype + " (" + maxRatio + ")");
         System.out.println("RACHA= " + constancia);
+
+        System.out.println("Hola Linkedin :)");
     }
 }
 
