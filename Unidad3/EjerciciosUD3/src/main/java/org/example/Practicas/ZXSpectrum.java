@@ -1,5 +1,6 @@
 package org.example.Practicas;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ZXSpectrum {
@@ -15,12 +16,19 @@ public class ZXSpectrum {
 
         System.out.println("Introduce la resolución de tu pantalla (ancho x alto)...");
 
-        System.out.print("Ancho: ");
-        int ancho = teclado.nextInt(); // Definimos las columnas de la matriz
+        int ancho = 0; // Definimos las columnas de la matriz
+        int alto = 0; // Definimos las filas de la matriz
+        try {
+            System.out.print("Ancho: ");
+            ancho = teclado.nextInt();
 
-        System.out.print("Alto: ");
-        int alto = teclado.nextInt(); // Definimos las filas de la matriz
-        teclado.nextLine();
+            System.out.print("Alto: ");
+            alto = teclado.nextInt();
+            teclado.nextLine();
+        } catch (InputMismatchException e) {
+            System.out.print("ERROR. El programa solo admite números.");
+            return;
+        }
 
         if (alto % bit != 0 || alto > maximo || ancho % bit != 0 || ancho > maximo) { // Validamos que la resolución de la pantalla sea correcta
             System.out.print("ERROR. La resolución debe ser múltiplo de 8 y no mayor de 48.");
