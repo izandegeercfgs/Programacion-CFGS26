@@ -55,5 +55,11 @@ public class Chuleta {
                 matriz[i][j] = valor++;
             }
         }
+
+        // Imprimirá "HolaMundo" sin espacios
+        String texto = "   Hola Mundo   ";
+        String resultado = texto.trim();
+        System.out.println("[" + resultado + "]");
+
     }
 }
