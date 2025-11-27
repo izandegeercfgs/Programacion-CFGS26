@@ -46,5 +46,14 @@ public class Chuleta {
 
         // Distincts se usa cuando necesitamos eliminar elementos duplicados, incluso sin estar ordenados
         int vector[] = Arrays.stream(nums).distinct().toArray();
+
+        // Declaración y llenado de una matriz
+        int[][] matriz = new int[2][3];
+        int valor = 1;
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                matriz[i][j] = valor++;
+            }
+        }
     }
 }

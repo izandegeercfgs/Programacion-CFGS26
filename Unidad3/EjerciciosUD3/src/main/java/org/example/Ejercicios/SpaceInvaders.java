@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class SpaceInvaders {
-    static void main() {
+    public static void main() {
 
         Scanner teclado = new Scanner(System.in);
 

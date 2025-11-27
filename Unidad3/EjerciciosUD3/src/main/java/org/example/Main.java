@@ -12,6 +12,6 @@ import org.example.Teoria.SplitNavidad;
 
 public class Main {
     public static void main(String[] args) {
-        BateriaMatrices.ejercicio3();
+        SpaceInvaders.main();
     }
 }
